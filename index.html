@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Beverages shop 🍺</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+    <h1>Beverages shop 🍺</h1>
+    <div id="birth-year-div">
+        <h3>Enter birth year</h3>
+        <form id="form">
+            <input type="number" value="2000" min="1900" max="2022" id="birth-year" required />
+            <input type="submit" value="Submit" id="submit" />
+        </form>
+    </div>
+    <div class="remove" id="beverages-list-div">
+        <h3>Select beverages:</h3>
+        <ul id="beverages-list"></ul>
+        <button id="order-button" class="primary-button">Order now</button>
+    </div>
+    <div class="remove" id="order-list-div">
+        <h3>Your order:</h3>
+        <ul id="order-list">
+            <li class="order-list-li">Tequila</li>
+            <li class="order-list-li">Rum</li>
+            <li class="order-list-li">Sprite</li>
+        </ul>
+        <h4>Have a nice day! ☀️</h4>
+        <button onClick="window.location.reload();" class="primary-button">Order agian</button>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
