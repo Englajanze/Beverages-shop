@@ -17,12 +17,11 @@ const submit = document.getElementById("form");
 const beveragesListDiv = document.getElementById("beverages-list-div");
 const birthYearDiv = document.getElementById("birth-year-div");
 
-submit.addEventListener("submit", function (e) {
-    e.preventDefault();
+submit.addEventListener("submit", function (event) {
+    event.preventDefault();
     // call ageCheck
     const birthYear = document.getElementById("birth-year").value;
-    age = ageCheck(birthYear);
-    document.getElementById("beverages-list").innerHTML = "";
+    const age = ageCheck(birthYear);
     ageBevrageList(age);
     beveragesClicked();
 
@@ -36,13 +35,18 @@ submit.addEventListener("submit", function (e) {
 const orderNow = document.getElementById("order-button");
 const orderListDiv = document.getElementById("order-list-div")
 
-orderNow.addEventListener("click", function (e) {
+orderNow.addEventListener("click", function (event) {
     beveragesListDiv.classList.add('remove');
     orderListDiv.classList.remove('remove');
 
-    // items med class beverages-select ska visas 
-    // hitta de items med beverages-select class
-    // visa dom på skärmen
+    // orderArray ska visas på skärmen när orderNow klickas.
+    orderArray.forEach((element) => {
+        let list = document.createElement("li");
+        list.innerText = element;
+        // lägger till css class till listan. 
+        list.classList.add("order-list-li");
+      document.getElementById("order-list").appendChild(list);
+    })
 });
 
 function ageBevrageList(age) {
@@ -55,6 +59,7 @@ function createBevragesList (array, age) {
     array.forEach((element) => {
         let list = document.createElement("li");
         list.innerText = element;
+        // lägger till css class till listan. 
         list.classList.add("beverages");
       document.getElementById("beverages-list").appendChild(list);
       if (age < 18 && array != beveragesUnder18) {
@@ -76,6 +81,12 @@ function beveragesClicked() {
 
             if (event.target.classList.contains("beverages-select")) {
                 event.target.classList.remove('beverages-select');
+                // ta bort items ur array
+                // använd indexof, finna index av elementet vi ska ta bort
+                const arrayIndex = orderArray.indexOf(item.innerHTML);
+                
+                // använd splice, använda index för att ta bort ur array
+                const removed = orderArray.splice(arrayIndex, 1);
             } else {
                 if (event.target.classList.contains("not-old-enough")) {
                     return
