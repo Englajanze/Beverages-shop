@@ -1,6 +1,6 @@
 
 
-// dela upp alkohol i 18gräns och 21 gräns
+// divide alcohol in 18 and 21 years old
 const beverages21 = ["Whiskey", "Tequila", "Rum"];
 const beverages18 = ["Beer", "Wine", "Cider"];
 const beveragesUnder18 = ["Fanta", "Coca Cola", "Sprite"];
@@ -25,9 +25,9 @@ submit.addEventListener("submit", function (event) {
     ageBevrageList(age);
     beveragesClicked();
 
-    //ta bort .remove class så beverages-list och order-button visas
+    //take away .remove class on beverages-lsit och order-button showing
     beveragesListDiv.classList.remove('remove');
-    // add class .remove till enter birth year och input så det försvinner
+    // add class .remove till enter birth year och input so it dissapears
     birthYearDiv.classList.add('remove');
     //från sidan när sumbit klickas. 
 });

@@ -48,7 +48,6 @@ ul {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    width: fit-content;
     text-align: center;
     justify-content: center;
 }
